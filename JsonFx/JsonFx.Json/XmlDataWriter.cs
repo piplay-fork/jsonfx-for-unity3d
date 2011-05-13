@@ -28,6 +28,7 @@
 \*---------------------------------------------------------------------------------*/
 #endregion License
 
+#if !UNITY3D
 using System;
 using System.IO;
 using System.Text;
@@ -171,3 +172,4 @@ namespace JsonFx.Xml
 		#endregion Methods
 	}
 }
+#endif

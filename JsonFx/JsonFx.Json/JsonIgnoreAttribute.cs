@@ -30,7 +30,9 @@
 
 using System;
 using System.Reflection;
+#if !UNITY3D
 using System.Xml.Serialization;
+#endif
 
 namespace JsonFx.Json
 {
@@ -103,7 +105,11 @@ namespace JsonFx.Json
 				throw new ArgumentException();
 			}
 
+#if !UNITY3D
 			return provider.IsDefined(typeof(XmlIgnoreAttribute), true);
+#else
+			return false;
+#endif
 		}
 
 		#endregion Methods

@@ -30,7 +30,6 @@
 
 using System;
 using System.Reflection;
-using System.Xml.Serialization;
 
 namespace JsonFx.Json
 {

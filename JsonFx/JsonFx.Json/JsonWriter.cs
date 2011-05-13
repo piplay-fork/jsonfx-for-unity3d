@@ -36,7 +36,9 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Text;
+#if !UNITY3D
 using System.Xml;
+#endif
 
 namespace JsonFx.Json
 {
@@ -551,12 +553,13 @@ namespace JsonFx.Json
 			// since IDictionary implements IEnumerable
 			if (value is IEnumerable)
 			{
+#if !UNITY3D
 				if (value is XmlNode)
 				{
 					this.Write((System.Xml.XmlNode)value);
 					return;
 				}
-
+#endif
 				try
 				{
 					if (isProperty)
@@ -903,11 +906,13 @@ namespace JsonFx.Json
 			this.Write(value.ToString());
 		}
 
+#if !UNITY3D
 		public virtual void Write(XmlNode value)
 		{
 			// TODO: auto-translate XML to JsonML
 			this.Write(value.OuterXml);
 		}
+#endif
 
 		#endregion Primative Writer Methods
 

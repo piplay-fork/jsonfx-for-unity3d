@@ -1,7 +1,0 @@
-﻿JsonFx.Scripts.JBST.merge, JsonFx.Client
-
-# SyntaxHighlighter scripts
-~/Scripts/SyntaxHighlighter/SyntaxHighlighter.merge
-
-# Example control
-~/Views/Example/Foo.MyZebraList.jbst
