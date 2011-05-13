@@ -1,0 +1,7 @@
+<%@ JsonService Class="MyApp.Services.MyService" Language="C#" %>
+
+/*
+	This service end-point can reference a class which implements the actual service methods.
+	Implementing a JSON-RPC service is as easy as marking up a service class with custom attributes.
+	Very similar to ASP.NET SOAP Web Services.
+*/

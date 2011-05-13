@@ -1,0 +1,7 @@
+# minimumal support needed for JBST
+
+# JsonML support
+JsonFx.Scripts.JsonML2.js, JsonFx.UI
+
+# JBST support
+JsonFx.Scripts.JsonML_BST.js, JsonFx.UI

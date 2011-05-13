@@ -1,0 +1,28 @@
+<%@ Control Name="Example.results" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	/* NOTE: the template name is an object which can be added to; equivalent to "this" */
+
+	/* this method is used as a callback in a service method */
+	/*void*/ Example.results.success = function(/*object*/ data, /*elem*/ cx) {
+
+		// this databinds the data to the template and rehydrates to DOM
+		var jbst = Example.results.bind(data);
+
+		jQuery(cx.elem).replaceWith(jbst);
+	};
+
+</script>
+
+This is the data that the server returned:
+<dl style="margin-left:2em;">
+	<dt>TimeStamp:</dt>
+	<dd><%= this.data.TimeStamp.toString() %></dd>
+
+	<dt>Machine:</dt>
+	<dd><%= this.data.Machine %></dd>
+
+	<dt>Number (sent up and back):</dt>
+	<dd><%= this.data.Number %></dd>
+</dl>

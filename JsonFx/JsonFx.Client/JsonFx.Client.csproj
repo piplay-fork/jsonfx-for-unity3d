@@ -1,0 +1,144 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5A84EB39-D30B-4085-8365-E1C05590F3BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JsonFx</RootNamespace>
+    <AssemblyName>JsonFx.Client</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DocumentationFile>bin\Debug\JsonFx.Client.XML</DocumentationFile>
+    <NoWarn>1570,1571,1572,1573,1591,1592</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\JsonFx.Client.XML</DocumentationFile>
+    <NoWarn>1570,1571,1572,1573,1591,1592</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Signed|AnyCPU' ">
+    <OutputPath>bin\Signed\</OutputPath>
+    <DefineConstants>TRACE;STRONG</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)_Keys\JsonFx_Key.pfx</AssemblyOriginatorKeyFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DocumentationFile>bin\Signed\JsonFx.Client.XML</DocumentationFile>
+    <NoWarn>1570,1571,1572,1573,1591,1592</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="EcmaScript.NET.modified">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)External\Yahoo.Yui.Compressor\EcmaScript.NET.modified.dll</HintPath>
+    </Reference>
+    <Reference Include="Yahoo.Yui.Compressor.NET20">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)External\Yahoo.Yui.Compressor\Yahoo.Yui.Compressor.NET20.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\AutoDataBindControl.cs" />
+    <Compile Include="Client\AutoMarkupType.cs" />
+    <Compile Include="Client\DataBlockWriter.cs" />
+    <Compile Include="Client\JsonMarkupWriter.cs" />
+    <Compile Include="Client\ResourceBuildResult.cs" />
+    <Compile Include="Client\ScriptDataBlock.cs" />
+    <Compile Include="Compilation\BuildCache.cs" />
+    <Compile Include="Compilation\BuildErrorReporter.cs" />
+    <Compile Include="Compilation\CssResourceCodeProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compilation\DirectiveParser.cs" />
+    <Compile Include="Compilation\MergeResourceCodeProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compilation\ResourceBuildProvider.cs">
+    </Compile>
+    <Compile Include="Compilation\ResourceCodeProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compilation\ScriptCompactionAdapter.cs" />
+    <Compile Include="Compilation\ScriptResourceCodeProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Client\ResourceInclude.cs" />
+    <Compile Include="Configuration\ScriptCompactionSection.cs" />
+    <Compile Include="Handlers\CompressedFileHandler.cs" />
+    <Compile Include="Handlers\_Deprecated.cs" />
+    <Compile Include="Handlers\ETag.cs" />
+    <Compile Include="Handlers\IBuildResult.cs" />
+    <Compile Include="Handlers\IGlobalizedBuildResult.cs" />
+    <Compile Include="Handlers\ResourceHandlerFactory.cs" />
+    <Compile Include="Handlers\ResourceHandler.cs" />
+    <Compile Include="Handlers\GlobalizedResourceHandler.cs" />
+    <Compile Include="Properties\AssemblyVersion.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(SolutionDir)External\External-Licenses.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JsonFx.BuildTools\JsonFx.BuildTools.csproj">
+      <Project>{7E5F1250-473C-494F-BFBD-835A1CE9CC13}</Project>
+      <Name>JsonFx.BuildTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonFx.Json\JsonFx.Json.csproj">
+      <Project>{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}</Project>
+      <Name>JsonFx.Json</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\JsonFx.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\JBST.merge" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\JsonFx_Core.merge" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

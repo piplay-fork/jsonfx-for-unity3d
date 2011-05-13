@@ -1,0 +1,22 @@
+# NOTE: Merge file comments begin with "#"
+# this file contains the list of scripts, templates, and service proxies to be combined
+# typically order is important for scripts
+
+# concatenating files reduces the number of downloads, each of which incurs a connection cost
+# compacting the files removes all comments and insignificant whitespace
+# finally, if the browser supports it the resulting content will be GZipped or Deflated
+# content can be directly in the project or embedded in linked assemblies
+# merge files can even merge other merge files
+
+# add all of the JsonFx scripts at once
+JsonFx.Scripts.JsonFx.merge, JsonFx.Client
+
+# JavaScript service proxies
+~/Services/MyService.jrpc
+
+# compiled JBST controls
+~/Controls/Example.jbst
+~/Controls/Results.jbst
+
+# regular JavaScript
+~/Scripts/ServiceTest.js

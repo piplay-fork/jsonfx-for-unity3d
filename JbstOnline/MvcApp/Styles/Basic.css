@@ -1,0 +1,56 @@
+﻿html, body
+{
+	height: 100%;
+	background-color: #EEEEEE;
+}
+body, textarea, input
+{
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+}
+body.fixed-view
+{
+	overflow: hidden;
+}
+
+a
+{
+	color: #660000;
+	outline-style: none;
+}
+a:hover,
+a:active
+{
+	color: #330000;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-weight: bold;
+}
+
+h1
+{
+	font-size: 1.5em;
+}
+h2
+{
+	font-size: 1.25em;
+}
+h3
+{
+	font-size: 1.1em;
+}
+
+input[type='text'],
+textarea
+{
+	background-color: white;
+	border: 1px solid #666666;
+}
+
+textarea
+{
+	padding: 0.25em;
+	overflow: auto;
+}

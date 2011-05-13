@@ -1,0 +1,22 @@
+﻿/* Put your CSS here */
+
+body
+{
+	background-color: #EEEEEE;
+    font-size: 12px;
+    font-family: Tahoma, "Lucida Grande", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+	text-align: center;
+}
+
+.content
+{
+	background-color: #F8F8F8;
+	border: 1px solid silver;
+	margin: 1em auto;
+	padding: 0.5em 1em;
+	width: 60%;
+
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}

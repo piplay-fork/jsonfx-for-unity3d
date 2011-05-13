@@ -1,0 +1,126 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JsonFx</RootNamespace>
+    <AssemblyName>JsonFx.UI</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DocumentationFile>bin\Debug\JsonFx.UI.XML</DocumentationFile>
+    <NoWarn>1570,1571,1572,1573,1591,1592</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DocumentationFile>bin\Release\JsonFx.UI.XML</DocumentationFile>
+    <NoWarn>1570,1571,1572,1573,1591,1592</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Signed|AnyCPU' ">
+    <OutputPath>bin\Signed\</OutputPath>
+    <DefineConstants>TRACE;STRONG</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)_Keys\JsonFx_Key.pfx</AssemblyOriginatorKeyFile>
+    <DocumentationFile>bin\Signed\JsonFx.UI.XML</DocumentationFile>
+    <NoWarn>1570,1571,1572,1573,1591,1592</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Jbst\Control.cs" />
+    <Compile Include="Jbst\Extensions\AppSettingsJbstExtension.cs" />
+    <Compile Include="Jbst\Extensions\JbstExtension.cs" />
+    <Compile Include="Jbst\Extensions\ResourceJbstExtension.cs" />
+    <Compile Include="Jbst\JbstBuildResult.cs" />
+    <Compile Include="Jbst\JbstCommandBase.cs" />
+    <Compile Include="Jbst\JbstCompiler.cs" />
+    <Compile Include="Jbst\JbstControl.cs" />
+    <Compile Include="Jbst\JbstCodeBlock.cs" />
+    <Compile Include="Jbst\JbstContainerControl.cs" />
+    <Compile Include="Jbst\JbstControlCollection.cs" />
+    <Compile Include="Jbst\JbstControlReference.cs" />
+    <Compile Include="Jbst\JbstInline.cs" />
+    <Compile Include="Jbst\JbstLiteral.cs" />
+    <Compile Include="Compilation\JbstCodeProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Jbst\JbstPlaceholder.cs" />
+    <Compile Include="Jbst\JbstWriter.cs" />
+    <Compile Include="Jbst\SimpleJbstBuildResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyVersion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JsonFx.BuildTools\JsonFx.BuildTools.csproj">
+      <Project>{7E5F1250-473C-494F-BFBD-835A1CE9CC13}</Project>
+      <Name>JsonFx.BuildTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonFx.Client\JsonFx.Client.csproj">
+      <Project>{5A84EB39-D30B-4085-8365-E1C05590F3BF}</Project>
+      <Name>JsonFx.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonFx.Json\JsonFx.Json.csproj">
+      <Project>{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}</Project>
+      <Name>JsonFx.Json</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\JsonFx_UI.js" />
+    <EmbeddedResource Include="Scripts\JsonML2.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\JsonFx_Bindings.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Scripts\JsonML_DOM.js" />
+    <EmbeddedResource Include="Scripts\JsonFx_Lang.js" />
+    <EmbeddedResource Include="Scripts\JsonFx_UA.js" />
+    <EmbeddedResource Include="Scripts\JsonML_BST.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

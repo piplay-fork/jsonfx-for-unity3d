@@ -1,0 +1,129 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.Json", "JsonFx.Json\JsonFx.Json.csproj", "{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.IO", "JsonFx.IO\JsonFx.IO.csproj", "{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.Client", "JsonFx.Client\JsonFx.Client.csproj", "{5A84EB39-D30B-4085-8365-E1C05590F3BF}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.UI", "JsonFx.UI\JsonFx.UI.csproj", "{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.History", "JsonFx.History\JsonFx.History.csproj", "{241E7122-64CA-43B8-B3F0-5BC776FC37BC}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.BuildTools", "JsonFx.BuildTools\JsonFx.BuildTools.csproj", "{7E5F1250-473C-494F-BFBD-835A1CE9CC13}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.WapTemplate", "JsonFx.WapTemplate\JsonFx.WapTemplate.csproj", "{FFBCA2CB-99A9-4975-82A2-F07527C44221}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\JsonFx.WebTemplate\", "JsonFx.WebTemplate\", "{8F7B4ED4-2560-4E82-AD46-D1E8AC2135AD}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = ""
+		SccAuxPath = ""
+		SccLocalPath = ""
+		SccProvider = ""
+		ProjectReferences = "{7E5F1250-473C-494F-BFBD-835A1CE9CC13}|JsonFx.BuildTools.dll;{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}|JsonFx.Json.dll;{5A84EB39-D30B-4085-8365-E1C05590F3BF}|JsonFx.Client.dll;{241E7122-64CA-43B8-B3F0-5BC776FC37BC}|JsonFx.History.dll;{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}|JsonFx.IO.dll;{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}|JsonFx.UI.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/JsonFx.WebTemplate"
+		Debug.AspNetCompiler.PhysicalPath = "JsonFx.WebTemplate\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\JsonFx.WebTemplate\"
+		Debug.AspNetCompiler.Updateable = "false"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/JsonFx.WebTemplate"
+		Release.AspNetCompiler.PhysicalPath = "JsonFx.WebTemplate\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\JsonFx.WebTemplate\"
+		Release.AspNetCompiler.Updateable = "false"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1753"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Signed|Any CPU = Signed|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Signed|Any CPU.ActiveCfg = Release|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Signed|Any CPU.Build.0 = Release|Any CPU
+		{8F7B4ED4-2560-4E82-AD46-D1E8AC2135AD}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{8F7B4ED4-2560-4E82-AD46-D1E8AC2135AD}.Debug|Any CPU.Build.0 = Debug|.NET
+		{8F7B4ED4-2560-4E82-AD46-D1E8AC2135AD}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{8F7B4ED4-2560-4E82-AD46-D1E8AC2135AD}.Release|Any CPU.Build.0 = Debug|.NET
+		{8F7B4ED4-2560-4E82-AD46-D1E8AC2135AD}.Signed|Any CPU.ActiveCfg = Debug|.NET
+		{8F7B4ED4-2560-4E82-AD46-D1E8AC2135AD}.Signed|Any CPU.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

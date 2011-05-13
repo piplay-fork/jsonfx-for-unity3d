@@ -1,0 +1,6 @@
+JsonFx v2 is being actively developed over on GitHub:
+
+	http://github.com/jsonfx/jsonfx
+
+In the very near future, this will be the only active repository for JsonFx.
+Other than potential bug fixes, development will continue with v2.

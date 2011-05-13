@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.Json", "JsonFx.Json\JsonFx.Json.csproj", "{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.Json.UnitTests", "JsonFx.Json.UnitTests\JsonFx.Json.UnitTests.csproj", "{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Signed|.NET = Signed|.NET
+		Signed|Any CPU = Signed|Any CPU
+		Signed|Mixed Platforms = Signed|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Debug|.NET.Build.0 = Debug|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|.NET.ActiveCfg = Release|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|.NET.Build.0 = Release|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Signed|.NET.ActiveCfg = Signed|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Signed|.NET.Build.0 = Signed|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Signed|Mixed Platforms.ActiveCfg = Signed|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Signed|Mixed Platforms.Build.0 = Signed|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Release|.NET.ActiveCfg = Release|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Signed|.NET.ActiveCfg = Release|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Signed|Any CPU.ActiveCfg = Release|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Signed|Any CPU.Build.0 = Release|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Signed|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}.Signed|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

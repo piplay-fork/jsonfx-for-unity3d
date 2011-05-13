@@ -1,0 +1,28 @@
+# all of the JsonFx scripts at once
+
+# client-side JSON serialization
+JsonFx.Scripts.json2.js, JsonFx.Json
+
+# JsonML support
+JsonFx.Scripts.JsonML2.js, JsonFx.UI
+
+# JBST support
+JsonFx.Scripts.JsonML_BST.js, JsonFx.UI
+
+# JSON-RPC support
+JsonFx.Scripts.JsonFx_IO.js, JsonFx.IO
+
+# CssUserAgent support
+JsonFx.Scripts.JsonFx_UA.js, JsonFx.UI
+
+# client-side globalization support
+JsonFx.Scripts.JsonFx_Lang.js, JsonFx.UI
+
+# dynamic behavior binding support
+JsonFx.Scripts.JsonFx_Bindings.js, JsonFx.UI
+
+# DOM utilities
+JsonFx.Scripts.JsonFx_UI.js, JsonFx.UI
+
+# Ajax History support
+JsonFx.Scripts.JsonFx_History.js, JsonFx.History

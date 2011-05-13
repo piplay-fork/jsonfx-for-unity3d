@@ -1,0 +1,118 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.MvcTemplate", "JsonFx.MvcTemplate\JsonFx.MvcTemplate.csproj", "{EE8C2271-2679-4A32-B48D-797DC3D127A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.Mvc", "JsonFx.Mvc\JsonFx.Mvc.csproj", "{FC5DBE18-C229-424D-8CF6-1E40A2A8DD85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.Json", "JsonFx.Json\JsonFx.Json.csproj", "{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.BuildTools", "JsonFx.BuildTools\JsonFx.BuildTools.csproj", "{7E5F1250-473C-494F-BFBD-835A1CE9CC13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.Client", "JsonFx.Client\JsonFx.Client.csproj", "{5A84EB39-D30B-4085-8365-E1C05590F3BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.IO", "JsonFx.IO\JsonFx.IO.csproj", "{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.History", "JsonFx.History\JsonFx.History.csproj", "{241E7122-64CA-43B8-B3F0-5BC776FC37BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.UI", "JsonFx.UI\JsonFx.UI.csproj", "{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.WapTemplate", "JsonFx.WapTemplate\JsonFx.WapTemplate.csproj", "{FFBCA2CB-99A9-4975-82A2-F07527C44221}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JsonFx.WebTemplate", "JsonFx.WebTemplate\", "{F9B5E739-AC9C-42D4-8BFD-181593ED298E}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = ""
+		SccAuxPath = ""
+		SccLocalPath = ""
+		SccProvider = ""
+		TargetFramework = "2.0"
+		ProjectReferences = "{7E5F1250-473C-494F-BFBD-835A1CE9CC13}|JsonFx.BuildTools.dll;{5A84EB39-D30B-4085-8365-E1C05590F3BF}|JsonFx.Client.dll;{241E7122-64CA-43B8-B3F0-5BC776FC37BC}|JsonFx.History.dll;{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}|JsonFx.IO.dll;{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}|JsonFx.Json.dll;{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}|JsonFx.UI.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/JsonFx.WebTemplate"
+		Debug.AspNetCompiler.PhysicalPath = "JsonFx.WebTemplate\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\JsonFx.WebTemplate\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/JsonFx.WebTemplate"
+		Release.AspNetCompiler.PhysicalPath = "JsonFx.WebTemplate\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\JsonFx.WebTemplate\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1753"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Signed|Any CPU = Signed|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE8C2271-2679-4A32-B48D-797DC3D127A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE8C2271-2679-4A32-B48D-797DC3D127A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE8C2271-2679-4A32-B48D-797DC3D127A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE8C2271-2679-4A32-B48D-797DC3D127A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE8C2271-2679-4A32-B48D-797DC3D127A5}.Signed|Any CPU.ActiveCfg = Release|Any CPU
+		{EE8C2271-2679-4A32-B48D-797DC3D127A5}.Signed|Any CPU.Build.0 = Release|Any CPU
+		{FC5DBE18-C229-424D-8CF6-1E40A2A8DD85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC5DBE18-C229-424D-8CF6-1E40A2A8DD85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC5DBE18-C229-424D-8CF6-1E40A2A8DD85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC5DBE18-C229-424D-8CF6-1E40A2A8DD85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC5DBE18-C229-424D-8CF6-1E40A2A8DD85}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{FC5DBE18-C229-424D-8CF6-1E40A2A8DD85}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{7E5F1250-473C-494F-BFBD-835A1CE9CC13}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{5A84EB39-D30B-4085-8365-E1C05590F3BF}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{6DC125A3-2C11-4FEA-B948-1C563B0FAE52}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{241E7122-64CA-43B8-B3F0-5BC776FC37BC}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{17417DF0-B12F-4D5B-A9E7-8B7D894F93B4}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Signed|Any CPU.ActiveCfg = Release|Any CPU
+		{FFBCA2CB-99A9-4975-82A2-F07527C44221}.Signed|Any CPU.Build.0 = Release|Any CPU
+		{F9B5E739-AC9C-42D4-8BFD-181593ED298E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B5E739-AC9C-42D4-8BFD-181593ED298E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B5E739-AC9C-42D4-8BFD-181593ED298E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B5E739-AC9C-42D4-8BFD-181593ED298E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F9B5E739-AC9C-42D4-8BFD-181593ED298E}.Signed|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B5E739-AC9C-42D4-8BFD-181593ED298E}.Signed|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

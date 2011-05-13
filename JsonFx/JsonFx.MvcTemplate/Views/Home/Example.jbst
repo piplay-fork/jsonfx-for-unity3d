@@ -1,0 +1,22 @@
+<%@ Control Name="Example.congrats" Language="JavaScript" %>
+
+<script type="text/javascript">
+
+	/* format integers to have at least two digits */
+	/*int*/ this.format = function(/*int*/ n) {
+        return (n < 10) ? '0' + n : n;
+    };
+
+</script>
+
+<div>
+	<%-- If your configuration is not correct then this message will not show. --%>
+	<p>
+		Congratulations!
+		As of <%= this.data.RenderTime.getHours()+":"+this.format(this.data.RenderTime.getMinutes()) %>,
+		setup appears to be configured correctly on <strong><%= document.location.host %> (<%= this.data.ServerName %>)</strong>.
+	</p>
+	<p><input type="button" value="Ajax via JSON-RPC" onclick="Example.callJsonRpc(this);" /></p>
+	<p><input type="button" value="Ajax via REST Controller" onclick="Example.callRestAction(this);" /></p>
+	<p>See <a href="http://starterkit.jsonfx.net/jbst">http://starterkit.jsonfx.net/jbst</a> for JBST syntax examples.</p>
+</div>

@@ -1,0 +1,107 @@
+﻿.button
+{
+	background-color: #CCCCCC;
+	background-image: url(/Images/Buttons/ButtonFade.png);
+	background-position: left top;
+	background-repeat: repeat-x;
+	border: 1px solid #AAAAAA;
+	color: #333333;
+	/*font-weight: bold;*/
+	outline: none;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+	white-space: nowrap;
+
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+.ua-ie-5 .button,
+.ua-ie-6 .button
+{
+	background-image: none;
+}
+.button:hover
+{
+	background-color: #BBCCDD;
+	border-color: #778899;
+}
+.ua-ie-5 .button,
+.ua-ie-6 .button,
+.ua-ie-7 .button
+{
+	display: inline-block;
+}
+
+.button-active,
+.button-active:link,
+.button-active:hover,
+.button-active:focus,
+.button-active:visited
+{
+	background-color: #DDCCBB;
+	border-color: maroon;
+	color: maroon;
+}
+.button:active
+{
+	background-color: #AACCEE;
+	border-color: #556677;
+	color: #333333;
+}
+
+.button-reverse
+{
+	background-color: #333333;
+	border-color: #666666;
+	color: white;
+}
+.button-reverse:hover
+{
+	background-color: #334466;
+	border-color: #556677;
+	color: white;
+}
+.button-reverse:active
+{
+	background-color: #445577;
+	border-color: #667788;
+	color: white;
+}
+
+.button-disabled,
+.button-disabled:link,
+.button-disabled:hover,
+.button-disabled:active,
+.button-disabled:focus,
+.button-disabled:visited
+{
+	background-color: #DDDDDD;
+	border: 1px solid silver;
+	color: #999999;
+	cursor: default;
+}
+
+ul.button-toolbar
+{
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+ul.button-toolbar li
+{
+	float: left;
+	font-size: 0.9em;
+	text-align: center;
+}
+
+div.buttons
+{
+	padding: 1em;
+	clear: left;
+}
+
+.button-large
+{
+	font-size: 1.5em;
+}

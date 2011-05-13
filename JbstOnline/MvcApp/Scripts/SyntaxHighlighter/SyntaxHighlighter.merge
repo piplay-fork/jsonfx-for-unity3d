@@ -1,0 +1,25 @@
+# SyntaxHighlighter v2.1.364 (2009-10-15)
+
+~/Scripts/SyntaxHighlighter/shCore.js
+#~/Scripts/SyntaxHighlighter/shLegacy.js
+
+#~/Scripts/SyntaxHighlighter/shBrushBash.js
+#~/Scripts/SyntaxHighlighter/shBrushCpp.js
+#~/Scripts/SyntaxHighlighter/shBrushCSharp.js
+#~/Scripts/SyntaxHighlighter/shBrushCss.js
+#~/Scripts/SyntaxHighlighter/shBrushDelphi.js
+#~/Scripts/SyntaxHighlighter/shBrushDiff.js
+#~/Scripts/SyntaxHighlighter/shBrushGroovy.js
+#~/Scripts/SyntaxHighlighter/shBrushJava.js
+~/Scripts/SyntaxHighlighter/shBrushJScript.js
+#~/Scripts/SyntaxHighlighter/shBrushPhp.js
+#~/Scripts/SyntaxHighlighter/shBrushPlain.js
+#~/Scripts/SyntaxHighlighter/shBrushPython.js
+#~/Scripts/SyntaxHighlighter/shBrushRuby.js
+#~/Scripts/SyntaxHighlighter/shBrushScala.js
+#~/Scripts/SyntaxHighlighter/shBrushSql.js
+#~/Scripts/SyntaxHighlighter/shBrushVb.js
+~/Scripts/SyntaxHighlighter/shBrushXml.js
+
+~/Scripts/SyntaxHighlighter/shBrushJbst.js
+~/Scripts/SyntaxHighlighter/Config.js
