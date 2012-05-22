@@ -365,7 +365,7 @@ namespace JsonFx.Json
 				}
 				return;
 			}
-
+			
 			// must test enumerations before value types
 			if (value is Enum)
 			{
@@ -376,6 +376,13 @@ namespace JsonFx.Json
 			// Type.GetTypeCode() allows us to more efficiently switch type
 			// plus cannot use 'is' for ValueTypes
 			Type type = value.GetType();
+			
+			JsonConverter converter = this.Settings.GetConverter (type);
+			if (converter != null) {
+				converter.Write (this, type,value);
+				return;
+			}
+			
 			switch (Type.GetTypeCode(type))
 			{
 				case TypeCode.Boolean:
@@ -495,7 +502,7 @@ namespace JsonFx.Json
 				this.Write((Version)value);
 				return;
 			}
-
+			
 			// IDictionary test must happen BEFORE IEnumerable test
 			// since IDictionary implements IEnumerable
 			if (value is IDictionary)
@@ -1066,41 +1073,27 @@ namespace JsonFx.Json
 				foreach (PropertyInfo property in properties)
 				{
 					if (!property.CanRead)
-					{
 						continue;
-					}
 
 					if (!property.CanWrite && !anonymousType)
-					{
 						continue;
-					}
 
 					if (this.IsIgnored(type, property, value))
-					{
 						continue;
-					}
-
+					
 					object propertyValue = property.GetValue(value, null);
 					if (this.IsDefaultValue(property, propertyValue))
-					{
 						continue;
-					}
 
 					if (appendDelim)
-					{
 						this.WriteObjectPropertyDelim();
-					}
 					else
-					{
 						appendDelim = true;
-					}
 
 					// use Attributes here to control naming
 					string propertyName = JsonNameAttribute.GetJsonName(property);
 					if (String.IsNullOrEmpty(propertyName))
-					{
 						propertyName = property.Name;
-					}
 
 					this.WriteObjectProperty(propertyName, propertyValue);
 				}
@@ -1110,37 +1103,28 @@ namespace JsonFx.Json
 				foreach (FieldInfo field in fields)
 				{
 					if (!field.IsPublic || field.IsStatic)
-					{
 						continue;
-					}
 
 					if (this.IsIgnored(type, field, value))
-					{
 						continue;
-					}
 
 					object fieldValue = field.GetValue(value);
 					if (this.IsDefaultValue(field, fieldValue))
-					{
 						continue;
-					}
 
 					if (appendDelim)
 					{
 						this.WriteObjectPropertyDelim();
 						this.WriteLine();
-					}
-					else
+					} else
 					{
 						appendDelim = true;
 					}
-
+					
 					// use Attributes here to control naming
 					string fieldName = JsonNameAttribute.GetJsonName(field);
 					if (String.IsNullOrEmpty(fieldName))
-					{
 						fieldName = field.Name;
-					}
 
 					this.WriteObjectProperty(fieldName, fieldValue);
 				}
@@ -1151,9 +1135,8 @@ namespace JsonFx.Json
 			}
 
 			if (appendDelim)
-			{
 				this.WriteLine();
-			}
+			
 			this.Writer.Write(JsonReader.OperatorObjectEnd);
 		}
 
@@ -1217,7 +1200,14 @@ namespace JsonFx.Json
 					}
 				}
 			}
-
+			
+			//If the class is specified as opt-in serialization only, members must have the JsonMember attribute
+			if (objType.GetCustomAttributes (typeof(JsonOptInAttribute),true).Length != 0) {
+				if (member.GetCustomAttributes(typeof(JsonMemberAttribute),true).Length == 0) {
+					return true;
+				}
+			}
+			
 			if (this.settings.UseXmlSerializationAttributes)
 			{
 				if (JsonIgnoreAttribute.IsXmlIgnore(member))

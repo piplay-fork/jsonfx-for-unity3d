@@ -44,7 +44,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.cs" />
@@ -71,6 +70,8 @@
     <Compile Include="Properties\AssemblyVersion.cs" />
     <Compile Include="TypeCoercionUtility.cs" />
     <Compile Include="XmlDataWriter.cs" />
+    <Compile Include="JsonMemberAttribute.cs" />
+    <Compile Include="JsonOptInAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.txt">

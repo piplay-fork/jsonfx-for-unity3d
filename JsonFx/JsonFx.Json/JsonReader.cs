@@ -296,7 +296,16 @@ namespace JsonFx.Json
 			}
 
 			JsonToken token = this.Tokenize();
-
+			
+			if (expectedType != null && !expectedType.IsPrimitive) {
+				JsonConverter converter = this.Settings.GetConverter(expectedType);
+				if (converter != null) {
+					Dictionary<string,object> dict = (Dictionary<string,object>)Read(typeof(Dictionary<string,object>),false);
+					object obj = converter.Read (this,expectedType,dict);
+					return obj;
+				}
+			}
+			
 			switch (token)
 			{
 				case JsonToken.ObjectStart:

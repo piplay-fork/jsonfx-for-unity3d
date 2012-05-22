@@ -30,6 +30,7 @@
 
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace JsonFx.Json
 {
@@ -55,7 +56,7 @@ namespace JsonFx.Json
 		private string tab = "\t";
 		private string typeHintName;
 		private bool useXmlSerializationAttributes;
-
+		
 		#endregion Fields
 
 		#region Properties
@@ -132,7 +133,57 @@ namespace JsonFx.Json
 			get { return this.dateTimeSerializer; }
 			set { this.dateTimeSerializer = value; }
 		}
-
+		
+		protected List<JsonConverter> converters = new List<JsonConverter>();
+		
+		public virtual JsonConverter GetConverter (Type type) {
+			for (int i=0;i<converters.Count;i++)
+				if (converters[i].CanConvert (type))
+					return converters[i];
+			
+			return null;
+		}
+		
+		public virtual void AddTypeConverter (JsonConverter converter) {
+			converters.Add (converter);
+		}
 		#endregion Properties
 	}
+	
+	public abstract class JsonConverter {
+		
+		/** Test if this converter can convert the specified type */
+		public abstract bool CanConvert (Type t);
+		
+		public void Write (JsonWriter writer, Type type, object value) {
+			Dictionary<string,object> dict = WriteJson (type,value);
+			writer.Write (dict);
+		}
+		
+		public object Read (JsonReader reader, Type type, Dictionary<string,object> value) {
+			return ReadJson (type, value);
+		}
+		
+		public float CastFloat (object o) {
+			if (o==null)return 0.0F;
+			try {
+				return System.Convert.ToSingle(o);
+			} catch(System.Exception e) {
+				throw new JsonDeserializationException ("Cannot cast object to float. Expected float, got "+o.GetType(),e,0);
+			}
+		}
+		
+		public double CastDouble (object o) {
+			if (o==null)return 0.0;
+			try {
+				return System.Convert.ToDouble(o);
+			} catch(System.Exception e) {
+				throw new JsonDeserializationException ("Cannot cast object to double. Expected double, got "+o.GetType(),e,0);
+			}
+		}
+		
+		public abstract Dictionary<string,object> WriteJson (Type type, object value);
+		public abstract object ReadJson (Type type, Dictionary<string,object> value);
+	}
+	
 }

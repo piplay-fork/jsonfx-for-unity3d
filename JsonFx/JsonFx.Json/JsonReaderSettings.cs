@@ -29,6 +29,7 @@
 #endregion License
 
 using System;
+using System.Collections.Generic;
 
 namespace JsonFx.Json
 {
@@ -96,7 +97,21 @@ namespace JsonFx.Json
 				!String.IsNullOrEmpty(this.typeHintName) &&
 				StringComparer.Ordinal.Equals(this.typeHintName, name);
 		}
-
+	
+		protected List<JsonConverter> converters = new List<JsonConverter>();
+		
+		public virtual JsonConverter GetConverter (Type type) {
+			for (int i=0;i<converters.Count;i++)
+				if (converters[i].CanConvert (type))
+					return converters[i];
+			
+			return null;
+		}
+		
+		public virtual void AddTypeConverter (JsonConverter converter) {
+			converters.Add (converter);
+		}
+		
 		#endregion Methods
 	}
 }
