@@ -4,6 +4,7 @@ v1.4b
 - Forked by TowerOfBricks to add more features to the project: https://bitbucket.org/TowerOfBricks/jsonfx-for-unity3d/overview
 - Added support for overriding how certain types are serialized, JsonConverter.
 - Added attribute JsonOptIn, which can be applied to classes if you want to explicitly specify which members should be serialized (specify with JsonMember attribute).
+- Thanks to handsomePATT (Unity forums) for testing it on the iPhone!
 v.1.4b
 - Adapted by darktable to better work with Unity3D (especially for the iPhone): https://bitbucket.org/darktable/jsonfx-for-unity3d/overview
 v1.4.1003.3007
