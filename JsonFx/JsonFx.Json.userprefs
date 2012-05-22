@@ -1,6 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="JsonFx.Json/JsonNameAttribute.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="JsonFx.Json/DataReaderProvider.cs">
     <Files>
       <File FileName="JsonFx.Json/TypeCoercionUtility.cs" Line="272" Column="35" />
       <File FileName="JsonFx.Json/JsonWriter.cs" Line="508" Column="29" />
@@ -11,8 +11,13 @@
       <File FileName="JsonFx.Json/JsonMemberAttribute.cs" Line="4" Column="54" />
       <File FileName="JsonFx.Json/JsonOptInAttribute.cs" Line="5" Column="65" />
       <File FileName="JsonFx.Json/JsonReader.cs" Line="55" Column="1" />
-      <File FileName="JsonFx.Json/About.cs" Line="64" Column="1" />
-      <File FileName="JsonFx.Json/Readme.txt" Line="9" Column="53" />
+      <File FileName="JsonFx.Json/Readme.txt" Line="4" Column="1" />
+      <File FileName="JsonFx.Json/IJsonSerializable.cs" Line="1" Column="1" />
+      <File FileName="JsonFx.Json/License.txt" Line="1" Column="1" />
+      <File FileName="JsonFx.Json/Properties/AssemblyInfo.cs" Line="50" Column="1" />
+      <File FileName="JsonFx.Json/Properties/AssemblyVersion.cs" Line="9" Column="27" />
+      <File FileName="JsonFx.Json/XmlDataReader.cs" Line="1" Column="1" />
+      <File FileName="JsonFx.Json/DataReaderProvider.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
