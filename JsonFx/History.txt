@@ -1,5 +1,11 @@
 Release History
 
+v1.4b
+- Forked by TowerOfBricks to add more features to the project: https://bitbucket.org/TowerOfBricks/jsonfx-for-unity3d/overview
+- Added support for overriding how certain types are serialized, JsonConverter.
+- Added attribute JsonOptIn, which can be applied to classes if you want to explicitly specify which members should be serialized (specify with JsonMember attribute).
+v.1.4b
+- Adapted by darktable to better work with Unity3D (especially for the iPhone): https://bitbucket.org/darktable/jsonfx-for-unity3d/overview
 v1.4.1003.3007
 - added helper methods for manipulating JsonML structures
 - added event callbacks during JBST bindings for added structure manipulation

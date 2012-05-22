@@ -46,7 +46,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.cs" />
     <Compile Include="DataReaderProvider.cs" />
     <Compile Include="DataWriterProvider.cs" />
     <Compile Include="XmlDataReader.cs" />
@@ -80,7 +79,6 @@
     <Content Include="Readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Scripts\json2.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

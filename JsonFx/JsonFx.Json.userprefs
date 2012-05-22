@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="JsonFx.Json/JsonReaderSettings.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="JsonFx.Json/JsonNameAttribute.cs">
     <Files>
       <File FileName="JsonFx.Json/TypeCoercionUtility.cs" Line="272" Column="35" />
       <File FileName="JsonFx.Json/JsonWriter.cs" Line="508" Column="29" />
