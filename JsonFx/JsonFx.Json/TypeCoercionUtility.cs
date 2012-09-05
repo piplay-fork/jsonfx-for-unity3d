@@ -35,7 +35,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Reflection;
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	/// <summary>
 	/// Utility for forcing conversion between types
@@ -154,18 +154,27 @@ namespace JsonFx.Json
 				throw new JsonTypeCoercionException("Error instantiating " + objectType.FullName, ex);
 			}
 
+			memberMap = GetMemberMap (objectType);
+			
+			return result;
+		}
+		
+		/** Returns a member map if suitable for the object type.
+		 * Dictionary types will make this method return null
+		 */
+		public Dictionary<string, MemberInfo> GetMemberMap (Type objectType) {
 			// don't incurr the cost of member map for dictionaries
 			if (typeof(IDictionary).IsAssignableFrom(objectType))
 			{
-				memberMap = null;
+				return null;
 			}
 			else
 			{
-				memberMap = this.CreateMemberMap(objectType);
+				return this.CreateMemberMap(objectType);
 			}
-			return result;
 		}
-
+		
+		/** Creates a member map for the type */
 		private Dictionary<string, MemberInfo> CreateMemberMap(Type objectType)
 		{
 			if (this.MemberMapCache.ContainsKey(objectType))

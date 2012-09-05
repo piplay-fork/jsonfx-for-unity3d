@@ -32,7 +32,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	/// <summary>
 	/// An <see cref="IDataReader"/> adapter for <see cref="JsonDataReader"/>

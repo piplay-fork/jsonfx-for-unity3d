@@ -23,6 +23,9 @@ by accepting handling many non-JSON JavaScript concepts:
 	- Common literals such as "Infinity", "NaN", and "undefined"
 	- Ignores block and line comments when deserializing
 
+This version has been modified to work better with Unity3D, especially when building for the iPhone.
+No additional .dll dependencies (such as System.Xml) are required. Additional in the sense that Unity does not include them per default.
+
 Optional ability to control serialization via attributes/interfaces:
 
 	JsonFx.Json.IJsonSerializable:
@@ -39,6 +42,12 @@ Optional ability to control serialization via attributes/interfaces:
 
 	JsonFx.Json.JsonSpecifiedPropertyAttribute:
 	Attribute which specifies the name of the property which specifies if member should be serialized
+
+	JsonFx.Json.JsonOptIn:
+	Attribute which specifies that all members of the class must be explicitly declared to be included in the serialization (see next)
+
+	JsonFx.Json.JsonMember:
+	Attribute which explicitly declares the member to be included in the serialization.
 
 Optional Type-Hinting improves deserializing to strongly-typed objects
 

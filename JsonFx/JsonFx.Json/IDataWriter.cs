@@ -32,7 +32,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	/// <summary>
 	/// A common interface for data serializers

@@ -34,7 +34,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	/// <summary>
 	/// Writes data as full ECMAScript objects, rather than the limited set of JSON objects.

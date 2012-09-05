@@ -32,11 +32,12 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("JsonFx.Json")]
+[assembly: AssemblyTitle("JsonFx for A* Pathfinding Project")]
 [assembly: AssemblyDescription("JsonFx.NET JSON Serialization")]
-[assembly: AssemblyProduct("JsonFx.NET")]
+[assembly: AssemblyProduct("JsonFx.NET.Unity")]
 [assembly: AssemblyCopyright("Copyright © 2006-2009 Stephen M. McKamey. All rights reserved.")]
 [assembly: AssemblyCompany("http://jsonfx.net")]
+
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #elif STRONG
@@ -45,5 +46,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("Release")]
 #endif
 [assembly: ComVisible(false)]
-[assembly: Guid("D98A5EF8-4709-4FF8-B162-8EA04B281400")]
+[assembly: Guid("a3a74921-2901-456c-84f2-b0d83994d33a")]
 [assembly: ObfuscateAssembly(false, StripAfterObfuscation=false)]

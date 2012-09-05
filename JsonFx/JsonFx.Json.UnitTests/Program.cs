@@ -33,9 +33,9 @@ using System.IO;
 using System.Text;
 using System.Diagnostics;
 
-using JsonFx.Json;
+using Pathfinding.Serialization.JsonFx;
 
-namespace JsonFx.Json.Test
+namespace Pathfinding.Serialization.JsonFx.Test
 {
 	class Program
 	{

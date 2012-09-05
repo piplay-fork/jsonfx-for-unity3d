@@ -40,7 +40,7 @@ using System.Text;
 using System.Xml;
 #endif
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	/// <summary>
 	/// Writer for producing JSON data
@@ -1072,19 +1072,37 @@ namespace JsonFx.Json
 				PropertyInfo[] properties = type.GetProperties();
 				foreach (PropertyInfo property in properties)
 				{
-					if (!property.CanRead)
+					if (!property.CanRead) {
+						if (Settings.DebugMode)
+							Console.WriteLine ("Cannot serialize "+property.Name+" : cannot read");
 						continue;
-
-					if (!property.CanWrite && !anonymousType)
+					}
+					
+					if (!property.CanWrite && !anonymousType) {
+						if (Settings.DebugMode)
+							Console.WriteLine ("Cannot serialize "+property.Name+" : cannot write");
 						continue;
-
-					if (this.IsIgnored(type, property, value))
+					}
+					
+					if (this.IsIgnored(type, property, value)) {
+						if (Settings.DebugMode)
+							Console.WriteLine ("Cannot serialize "+property.Name+" : is ignored by settings");
 						continue;
+					}
+					
+					if (property.GetIndexParameters ().Length != 0) {
+						if (Settings.DebugMode)
+							Console.WriteLine ("Cannot serialize "+property.Name+" : is indexed");
+						continue;
+					}
 					
 					object propertyValue = property.GetValue(value, null);
-					if (this.IsDefaultValue(property, propertyValue))
+					if (this.IsDefaultValue(property, propertyValue)) {
+						if (Settings.DebugMode)
+							Console.WriteLine ("Cannot serialize "+property.Name+" : is default value");
 						continue;
-
+					}
+				
 					if (appendDelim)
 						this.WriteObjectPropertyDelim();
 					else
@@ -1102,15 +1120,24 @@ namespace JsonFx.Json
 				FieldInfo[] fields = type.GetFields();
 				foreach (FieldInfo field in fields)
 				{
-					if (!field.IsPublic || field.IsStatic)
+					if (!field.IsPublic || field.IsStatic) {
+						if (Settings.DebugMode)
+							Console.WriteLine ("Cannot serialize "+field.Name+" : not public or is static");
 						continue;
-
-					if (this.IsIgnored(type, field, value))
+					}
+					
+					if (this.IsIgnored(type, field, value)) {
+						if (Settings.DebugMode)
+							Console.WriteLine ("Cannot serialize "+field.Name+" : ignored by settings");
 						continue;
+					}
 
 					object fieldValue = field.GetValue(value);
-					if (this.IsDefaultValue(field, fieldValue))
+					if (this.IsDefaultValue(field, fieldValue)) {
+						if (Settings.DebugMode)
+							Console.WriteLine ("Cannot serialize "+field.Name+" : is default value");
 						continue;
+					}
 
 					if (appendDelim)
 					{

@@ -36,7 +36,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	/// <summary>
 	/// Reader for consuming JSON data
@@ -256,11 +256,11 @@ namespace JsonFx.Json
 		/// </summary>
 		/// <param name="type"></param>
 		/// <returns></returns>
-		public T Deserialize<T>()
+		/*public T Deserialize<T>()
 		{
 			// should this run through a preliminary test here?
 			return (T)this.Read(typeof(T), false);
-		}
+		}*/
 
 		/// <summary>
 		/// Convert from JSON string to Object graph of specific Type
@@ -280,14 +280,14 @@ namespace JsonFx.Json
 		/// </summary>
 		/// <param name="type"></param>
 		/// <returns></returns>
-		public T Deserialize<T>(int start)
+		/*public T Deserialize<T>(int start)
 		{
 			this.index = start;
 
 			// should this run through a preliminary test here?
 			return (T)this.Read(typeof(T), false);
-		}
-
+		}*/
+		
 		private object Read(Type expectedType, bool typeIsHint)
 		{
 			if (expectedType == typeof(Object))
@@ -300,9 +300,18 @@ namespace JsonFx.Json
 			if (expectedType != null && !expectedType.IsPrimitive) {
 				JsonConverter converter = this.Settings.GetConverter(expectedType);
 				if (converter != null) {
-					Dictionary<string,object> dict = (Dictionary<string,object>)Read(typeof(Dictionary<string,object>),false);
-					object obj = converter.Read (this,expectedType,dict);
-					return obj;
+					object val;
+					try {
+						val = Read(typeof(Dictionary<string,object>),false);
+						Dictionary<string,object> dict = val as Dictionary<string,object>;
+						if (dict == null) return null;
+						object obj = converter.Read (this,expectedType,dict);
+						return obj;
+					} catch (JsonTypeCoercionException e) {
+						Console.WriteLine ("Could not cast to dictionary for converter processing. Ignoring field.\n"+e);
+					}
+					return null;
+					
 				}
 			}
 			
@@ -366,14 +375,25 @@ namespace JsonFx.Json
 				}
 			}
 		}
-
-		private object ReadObject(Type objectType)
-		{
-			if (this.Source[this.index] != JsonReader.OperatorObjectStart)
-			{
-				throw new JsonDeserializationException(JsonReader.ErrorExpectedObject, this.index);
-			}
-
+		
+		/*public void PopulateObject<T> (T obj) {
+			PopulateObject (obj);
+		}*/
+		
+		public void PopulateObject (object obj) {
+			Type objectType = obj.GetType();
+			Dictionary<string, MemberInfo> memberMap = this.Settings.Coercion.GetMemberMap(objectType);
+			Type genericDictionaryType = null;
+			
+			if (memberMap == null)
+				{
+					genericDictionaryType = GetGenericDictionaryType(objectType);
+				}
+			
+			PopulateObject (obj, objectType, memberMap, genericDictionaryType);
+		}
+		
+		private object ReadObject (Type objectType) {
 			Type genericDictionaryType = null;
 			Dictionary<string, MemberInfo> memberMap = null;
 			Object result;
@@ -383,31 +403,47 @@ namespace JsonFx.Json
 
 				if (memberMap == null)
 				{
-					// this allows specific IDictionary<string, T> to deserialize T
-					Type genericDictionary = objectType.GetInterface(JsonReader.TypeGenericIDictionary);
-					if (genericDictionary != null)
-					{
-						Type[] genericArgs = genericDictionary.GetGenericArguments();
-						if (genericArgs.Length == 2)
-						{
-							if (genericArgs[0] != typeof(String))
-							{
-								throw new JsonDeserializationException(
-									String.Format(JsonReader.ErrorGenericIDictionaryKeys, objectType),
-									this.index);
-							}
-
-							if (genericArgs[1] != typeof(Object))
-							{
-								genericDictionaryType = genericArgs[1];
-							}
-						}
-					}
+					genericDictionaryType = GetGenericDictionaryType(objectType);
 				}
 			}
 			else
 			{
 				result = new Dictionary<String, Object>();
+			}
+			
+			PopulateObject (result, objectType, memberMap, genericDictionaryType);
+			return result;
+		}
+		
+		private Type GetGenericDictionaryType (Type objectType) {
+			// this allows specific IDictionary<string, T> to deserialize T
+			Type genericDictionary = objectType.GetInterface(JsonReader.TypeGenericIDictionary);
+			if (genericDictionary != null)
+			{
+				Type[] genericArgs = genericDictionary.GetGenericArguments();
+				if (genericArgs.Length == 2)
+				{
+					if (genericArgs[0] != typeof(String))
+					{
+						throw new JsonDeserializationException(
+							String.Format(JsonReader.ErrorGenericIDictionaryKeys, objectType),
+							this.index);
+					}
+
+					if (genericArgs[1] != typeof(Object))
+					{
+						return genericArgs[1];
+					}
+				}
+			}
+			return null;
+		}
+		
+		private void PopulateObject (object result, Type objectType, Dictionary<string, MemberInfo> memberMap, Type genericDictionaryType)
+		{
+			if (this.Source[this.index] != JsonReader.OperatorObjectStart)
+			{
+				throw new JsonDeserializationException(JsonReader.ErrorExpectedObject, this.index);
 			}
 
 			JsonToken token;
@@ -502,7 +538,7 @@ namespace JsonFx.Json
 			// consume closing brace
 			this.index++;
 
-			return result;
+			//return result;
 		}
 
 		private IEnumerable ReadArray(Type arrayType)

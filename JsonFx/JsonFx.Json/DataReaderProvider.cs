@@ -31,7 +31,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	public interface IDataReaderProvider
 	{

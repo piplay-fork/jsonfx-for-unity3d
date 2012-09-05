@@ -32,7 +32,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	public interface IDataWriterProvider
 	{

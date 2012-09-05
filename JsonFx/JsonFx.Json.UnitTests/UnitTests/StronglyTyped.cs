@@ -36,9 +36,9 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Text;
 
-using JsonFx.Json;
+using Pathfinding.Serialization.JsonFx;
 
-namespace JsonFx.Json.Test.UnitTests
+namespace Pathfinding.Serialization.JsonFx.Test.UnitTests
 {
 	/* A set of objects used to test strongly-typed serialization */
 

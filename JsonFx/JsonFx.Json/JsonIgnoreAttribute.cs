@@ -34,7 +34,7 @@ using System.Reflection;
 using System.Xml.Serialization;
 #endif
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	/// <summary>
 	/// Designates a property or field to not be serialized.

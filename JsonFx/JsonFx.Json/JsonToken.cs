@@ -30,7 +30,7 @@
 
 using System;
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	/// <summary>
 	/// Parse Tokens

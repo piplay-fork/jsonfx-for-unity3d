@@ -32,7 +32,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
-namespace JsonFx.Json
+namespace Pathfinding.Serialization.JsonFx
 {
 	/// <summary>
 	/// Represents a proxy method for serialization of types which do not implement IJsonSerializable
@@ -134,8 +134,15 @@ namespace JsonFx.Json
 			set { this.dateTimeSerializer = value; }
 		}
 		
+		/** Enables more debugging messages.
+		 * E.g about why some members are not serialized.
+		 * The number of debugging messages are in no way exhaustive
+		 */
+		public virtual bool DebugMode { get; set; }
+		
 		protected List<JsonConverter> converters = new List<JsonConverter>();
 		
+		/** Returns the converter for the specified type */
 		public virtual JsonConverter GetConverter (Type type) {
 			for (int i=0;i<converters.Count;i++)
 				if (converters[i].CanConvert (type))
@@ -144,6 +151,10 @@ namespace JsonFx.Json
 			return null;
 		}
 		
+		/** Adds a converter to use to serialize otherwise non-serializable types.
+		 * Good if you do not have the source and it throws error when trying to serialize it.
+		 * For example the Unity3D Vector3 can be serialized using a special converter
+		 */
 		public virtual void AddTypeConverter (JsonConverter converter) {
 			converters.Add (converter);
 		}
