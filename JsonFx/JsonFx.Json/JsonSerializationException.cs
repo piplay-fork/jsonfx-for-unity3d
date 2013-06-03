@@ -30,7 +30,7 @@
 
 using System;
 
-namespace Pathfinding.Serialization.JsonFx
+namespace JsonFx.Json
 {
 	public class JsonSerializationException : InvalidOperationException
 	{

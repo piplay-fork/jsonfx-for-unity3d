@@ -36,7 +36,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-namespace Pathfinding.Serialization.JsonFx
+namespace JsonFx.Json
 {
 	/// <summary>
 	/// Reader for consuming JSON data
@@ -256,11 +256,11 @@ namespace Pathfinding.Serialization.JsonFx
 		/// </summary>
 		/// <param name="type"></param>
 		/// <returns></returns>
-		/*public T Deserialize<T>()
+		public T Deserialize<T>()
 		{
 			// should this run through a preliminary test here?
 			return (T)this.Read(typeof(T), false);
-		}*/
+		}
 
 		/// <summary>
 		/// Convert from JSON string to Object graph of specific Type
@@ -280,13 +280,13 @@ namespace Pathfinding.Serialization.JsonFx
 		/// </summary>
 		/// <param name="type"></param>
 		/// <returns></returns>
-		/*public T Deserialize<T>(int start)
+		public T Deserialize<T>(int start)
 		{
 			this.index = start;
 
 			// should this run through a preliminary test here?
 			return (T)this.Read(typeof(T), false);
-		}*/
+		}
 		
 		private object Read(Type expectedType, bool typeIsHint)
 		{

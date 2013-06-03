@@ -35,7 +35,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Reflection;
 
-namespace Pathfinding.Serialization.JsonFx
+namespace JsonFx.Json
 {
 	/// <summary>
 	/// Utility for forcing conversion between types

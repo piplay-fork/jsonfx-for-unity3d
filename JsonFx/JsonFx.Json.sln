@@ -1,17 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx", "JsonFx.Json\JsonFx.csproj", "{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
-EndProject
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.Json.UnitTests", "JsonFx.Json.UnitTests\JsonFx.Json.UnitTests.csproj", "{9F616133-A5C3-48C7-95F3-2DCC01F8B03F}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonFx.Json", "JsonFx.Json\JsonFx.Json.csproj", "{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +20,10 @@ Global
 		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABA23F14-7E47-43FE-A3E7-1FF97840C3FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = JsonFx.Json\JsonFx.csproj
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = JsonFx.Json\JsonFx.csproj
 	EndGlobalSection
 EndGlobal

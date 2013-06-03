@@ -31,9 +31,9 @@
 using System;
 using System.IO;
 
-using Pathfinding.Serialization.JsonFx;
+using JsonFx.Json;
 
-namespace Pathfinding.Serialization.JsonFx.Test.UnitTests
+namespace JsonFx.Json.Test.UnitTests
 {
 	public class JsonText
 	{

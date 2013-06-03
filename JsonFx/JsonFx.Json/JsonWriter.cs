@@ -40,7 +40,7 @@ using System.Text;
 using System.Xml;
 #endif
 
-namespace Pathfinding.Serialization.JsonFx
+namespace JsonFx.Json
 {
 	/// <summary>
 	/// Writer for producing JSON data

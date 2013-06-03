@@ -32,9 +32,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("JsonFx for A* Pathfinding Project")]
+[assembly: AssemblyTitle("JsonFx for Unity3D")]
 [assembly: AssemblyDescription("JsonFx.NET JSON Serialization")]
-[assembly: AssemblyProduct("JsonFx.NET.Unity")]
+[assembly: AssemblyProduct("JsonFx.NET.Unity3D")]
 [assembly: AssemblyCopyright("Copyright © 2006-2009 Stephen M. McKamey. All rights reserved.")]
 [assembly: AssemblyCompany("http://jsonfx.net")]
 
