@@ -31,7 +31,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Pathfinding.Serialization.JsonFx
+namespace JsonFx.Json
 {
 	/// <summary>
 	/// Controls the deserialization settings for JsonReader

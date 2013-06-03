@@ -32,7 +32,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
-namespace Pathfinding.Serialization.JsonFx
+namespace JsonFx.Json
 {
 	/// <summary>
 	/// Represents a proxy method for serialization of types which do not implement IJsonSerializable

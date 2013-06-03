@@ -31,7 +31,7 @@
 using System;
 using System.Reflection;
 
-namespace Pathfinding.Serialization.JsonFx
+namespace JsonFx.Json
 {
 	/// <summary>
 	/// Specifies the name of the property which specifies if member should be serialized.

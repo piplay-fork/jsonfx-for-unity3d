@@ -30,7 +30,7 @@
 
 using System;
 
-namespace Pathfinding.Serialization.JsonFx
+namespace JsonFx.Json
 {
 	/// <summary>
 	/// Allows classes to control their own JSON serialization
