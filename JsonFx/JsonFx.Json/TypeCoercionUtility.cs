@@ -212,14 +212,9 @@ namespace JsonFx.Json
 			}
 
 			// load public fields into property map
-			FieldInfo[] fields = objectType.GetFields();
+			FieldInfo[] fields = objectType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
 			foreach (FieldInfo info in fields)
 			{
-				if (!info.IsPublic)
-				{
-					continue;
-				}
-
 				if (JsonIgnoreAttribute.IsJsonIgnore(info))
 				{
 					continue;
