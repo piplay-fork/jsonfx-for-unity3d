@@ -1078,12 +1078,6 @@ namespace JsonFx.Json
 						continue;
 					}
 					
-					if (!property.CanWrite && !anonymousType) {
-						if (Settings.DebugMode)
-							Console.WriteLine ("Cannot serialize "+property.Name+" : cannot write");
-						continue;
-					}
-					
 					if (this.IsIgnored(type, property, value)) {
 						if (Settings.DebugMode)
 							Console.WriteLine ("Cannot serialize "+property.Name+" : is ignored by settings");
@@ -1117,15 +1111,9 @@ namespace JsonFx.Json
 				}
 
 				// serialize public fields
-				FieldInfo[] fields = type.GetFields();
+				FieldInfo[] fields = type.GetFields(BindingFlags.Instance | BindingFlags.Public);
 				foreach (FieldInfo field in fields)
 				{
-					if (!field.IsPublic || field.IsStatic) {
-						if (Settings.DebugMode)
-							Console.WriteLine ("Cannot serialize "+field.Name+" : not public or is static");
-						continue;
-					}
-					
 					if (this.IsIgnored(type, field, value)) {
 						if (Settings.DebugMode)
 							Console.WriteLine ("Cannot serialize "+field.Name+" : ignored by settings");

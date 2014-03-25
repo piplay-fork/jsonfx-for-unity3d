@@ -190,9 +190,18 @@ namespace JsonFx.Json
 			PropertyInfo[] properties = objectType.GetProperties();
 			foreach (PropertyInfo info in properties)
 			{
-				if (!info.CanRead || !info.CanWrite)
+				if (!info.CanWrite)
 				{
-					continue;
+					//If we cannot just set the property and it's a primitive, just forget it
+					if (info.PropertyType.IsPrimitive)
+					{
+						continue;
+					}
+					//Otherwise, if we can't even read it, forget it!
+					if (!info.CanRead)
+					{
+						continue;
+					}
 				}
 
 				if (JsonIgnoreAttribute.IsJsonIgnore(info))
@@ -212,7 +221,7 @@ namespace JsonFx.Json
 			}
 
 			// load public fields into property map
-			FieldInfo[] fields = objectType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+			FieldInfo[] fields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public);
 			foreach (FieldInfo info in fields)
 			{
 				if (JsonIgnoreAttribute.IsJsonIgnore(info))
