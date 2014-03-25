@@ -1,5 +1,6 @@
 *.user
 *.suo
+*.userprefs
 JsonFx/JsonFx.Json/bin
 JsonFx/JsonFx.Json/obj
 JsonFx/JsonFx.Json.UnitTests/bin
