@@ -71,7 +71,8 @@
     <Compile Include="UnitTests\StronglyTyped.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JsonFxTest.cs" />
+    <Compile Include="FuzzUtil.cs" />
+    <Compile Include="ClassTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.txt">

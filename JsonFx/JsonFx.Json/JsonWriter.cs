@@ -1066,8 +1066,6 @@ namespace JsonFx.Json
 					this.WriteObjectProperty(this.settings.TypeHintName, type.FullName+", "+type.Assembly.GetName().Name);
 				}
 
-				bool anonymousType = type.IsGenericType && type.Name.StartsWith(JsonWriter.AnonymousTypePrefix);
-
 				// serialize public properties
 				PropertyInfo[] properties = type.GetProperties();
 				foreach (PropertyInfo property in properties)

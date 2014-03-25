@@ -54,7 +54,6 @@
   <ItemGroup>
     <Compile Include="DataReaderProvider.cs" />
     <Compile Include="DataWriterProvider.cs" />
-    <Compile Include="XmlDataReader.cs" />
     <Compile Include="IDataReader.cs" />
     <Compile Include="EcmaScriptIdentifier.cs" />
     <Compile Include="EcmaScriptWriter.cs" />
@@ -74,7 +73,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\AssemblyVersion.cs" />
     <Compile Include="TypeCoercionUtility.cs" />
-    <Compile Include="XmlDataWriter.cs" />
     <Compile Include="JsonMemberAttribute.cs" />
     <Compile Include="JsonOptInAttribute.cs" />
   </ItemGroup>
