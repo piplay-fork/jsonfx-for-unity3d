@@ -1117,12 +1117,12 @@ namespace JsonFx.Json
 				}
 
 				// serialize public fields
-				FieldInfo[] fields = type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+				FieldInfo[] fields = type.GetFields();
 				foreach (FieldInfo field in fields)
 				{
-					if (field.IsStatic) {
+					if (!field.IsPublic || field.IsStatic) {
 						if (Settings.DebugMode)
-							Console.WriteLine ("Cannot serialize "+field.Name+" : is static");
+							Console.WriteLine ("Cannot serialize "+field.Name+" : not public or is static");
 						continue;
 					}
 					
