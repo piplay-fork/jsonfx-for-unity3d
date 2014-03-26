@@ -69,6 +69,19 @@ namespace JsonFx.Json.UnitTests
 		}
 	}
 	
+	public class GetOnlyListPropertiesClass {
+		private List<int> _ints = new List<int>();
+		public List<int> ints { get { return _ints; } }
+		private List<string> _strings = new List<string>();
+		public List<string> strings { get { return _strings; } }
+		private List<bool> _bools = new List<bool>();
+		public List<bool> bools { get { return _bools; } }
+		private List<float> _floats = new List<float>();
+		public List<float> floats { get { return _floats; } }
+		private List<FieldsClass> _fields = new List<FieldsClass>();
+		public List<FieldsClass> fields { get { return _fields; } }
+	}
+	
 	public class BigNestedClass {
 		public FieldsClass fields;
 		public PublishedPropertiesClass publishedProperties;
@@ -117,21 +130,33 @@ namespace JsonFx.Json.UnitTests
 		}
 		
 		[Test()]
-		public void ReadonlyListsClass()
+		public void TestReadonlyListsClass()
 		{
 			DoTest<ReadonlyListsClass>();
 		}
 		
 		[Test()]
-		public void PublicSetPropertiesClass()
+		public void TestPublicSetPropertiesClass()
 		{
 			DoTest<PublicSetPropertiesClass>();
+		}
+		
+		[Test()]
+		public void TestGetOnlyListPropertiesClass()
+		{
+			DoTest<GetOnlyListPropertiesClass>();
+		}
+		
+		[Test()]
+		public void TestBigNestedClass()
+		{
+			DoTest<BigNestedClass>();
 		}
 		
 		private void DoTest<T>() {
 			var original = FuzzUtil.FuzzGen<T>();
 			var serialized = JsonWriter.Serialize(original);
-			Console.WriteLine("Test serialize: " + serialized);
+//			Console.WriteLine("Test serialize: " + serialized);
 			var deserialized = JsonReader.Deserialize<T>(serialized);
 //			Assert.AreEqual(original, deserialized);
 			var reserialized = JsonWriter.Serialize(deserialized);

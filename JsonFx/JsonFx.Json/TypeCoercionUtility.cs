@@ -284,16 +284,47 @@ namespace JsonFx.Json
 		{
 			if (memberInfo is PropertyInfo)
 			{
-				// set value of public property
-				((PropertyInfo)memberInfo).SetValue(
-					result,
-					this.CoerceType(memberType, value),
-					null);
+				PropertyInfo propertyInfo = (PropertyInfo)memberInfo;
+				if (propertyInfo.CanWrite)
+				{
+					// set value of public property
+					propertyInfo.SetValue(
+						result,
+						this.CoerceType(memberType, value),
+						null);
+				}
+				else
+				{
+					object existing = propertyInfo.GetValue(result, null);
+					if (existing is IList && value is IEnumerable)
+					{
+						IList existingList = (IList)existing;
+						IEnumerator incoming = ((IEnumerable)value).GetEnumerator();
+						int index = 0;
+						while (incoming.MoveNext())
+						{
+							if (index < existingList.Count) 
+							{
+								existingList[index] = incoming.Current;
+							}
+							else
+							{
+								existingList.Add(incoming.Current);
+							}
+							index++;
+						}
+						while (existingList.Count > index) 
+						{
+							existingList.RemoveAt(existingList.Count - 1);
+						}
+					}
+				}
 			}
 			else if (memberInfo is FieldInfo)
 			{
+				FieldInfo fieldInfo = (FieldInfo)memberInfo;
 				// set value of public field
-				((FieldInfo)memberInfo).SetValue(
+				fieldInfo.SetValue(
 					result,
 					this.CoerceType(memberType, value));
 			}

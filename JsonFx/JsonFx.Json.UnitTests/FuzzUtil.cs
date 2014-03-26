@@ -44,7 +44,6 @@ public static class FuzzUtil
 					int length = (int) RandMag(8);
 					var elementType = type.GetElementType();
 					var array = Array.CreateInstance(elementType, (int)length);
-					Console.WriteLine("Creating from " + type);
 					for (var i = 0; i < array.Length; i++) {
 						array.SetValue(FuzzGen(elementType, depthRemaining - 1), i);
 					}
@@ -52,7 +51,6 @@ public static class FuzzUtil
 				}
 				else if (typeof(IList).IsAssignableFrom(type)) {
 					var list = Activator.CreateInstance(type, (int)RandMag(8)) as IList;
-					Console.WriteLine("Creating from " + type);
 					var elementType = list.GetType().GetGenericArguments()[0];
 					for (var i = 0; i < list.Count; i++) {
 						list[i] = FuzzGen(elementType, depthRemaining - 1);
