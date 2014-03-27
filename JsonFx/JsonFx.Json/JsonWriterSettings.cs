@@ -53,6 +53,9 @@ namespace JsonFx.Json
 		private int maxDepth = 25;
 		private string newLine = Environment.NewLine;
 		private bool prettyPrint;
+		private bool prettyMergeable;
+		private bool printDefaults;
+		private bool sortMembers;
 		private string tab = "\t";
 		private string typeHintName;
 		private bool useXmlSerializationAttributes;
@@ -78,6 +81,40 @@ namespace JsonFx.Json
 			get { return this.prettyPrint; }
 			set { this.prettyPrint = value; }
 		}
+
+		/// <summary>
+		/// Gets and sets if JSON will be formatted for easier merge resolution (commas on separate lines)
+		/// </summary>
+		public virtual bool PrettyMergeable
+		{
+			get { return this.prettyPrint && this.prettyMergeable; }
+			set {
+				this.prettyMergeable = value;
+				if (value)
+				{
+					this.prettyPrint = true;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Gets and sets if default field values will be output
+		/// </summary>
+		public virtual bool PrintDefaults
+		{
+			get { return this.printDefaults; }
+			set { this.printDefaults = value; }
+		}
+		
+		/// <summary>
+		/// Gets and sets if object members are sorted on output
+		/// </summary>
+		public virtual bool SortMembers
+		{
+			get { return this.sortMembers; }
+			set { this.sortMembers = value; }
+		}
+		
 
 		/// <summary>
 		/// Gets and sets the string to use for indentation

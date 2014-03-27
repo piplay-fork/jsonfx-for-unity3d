@@ -942,6 +942,10 @@ namespace JsonFx.Json
 				{
 					if (appendDelim)
 					{
+						if (this.settings.PrettyMergeable)
+						{
+							this.WriteLine();
+						}
 						this.WriteArrayItemDelim();
 					}
 					else
@@ -999,6 +1003,10 @@ namespace JsonFx.Json
 				{
 					if (appendDelim)
 					{
+						if (this.settings.PrettyMergeable)
+						{
+							this.WriteLine();
+						}
 						this.WriteObjectPropertyDelim();
 					}
 					else
@@ -1056,6 +1064,10 @@ namespace JsonFx.Json
 				{
 					if (appendDelim)
 					{
+						if (this.settings.PrettyMergeable)
+						{
+							this.WriteLine();
+						}
 						this.WriteObjectPropertyDelim();
 					}
 					else
@@ -1068,78 +1080,47 @@ namespace JsonFx.Json
 
 				// serialize public properties
 				PropertyInfo[] properties = type.GetProperties();
-				foreach (PropertyInfo property in properties)
-				{
-					if (!property.CanRead) {
-						if (Settings.DebugMode)
-							Console.WriteLine ("Cannot serialize "+property.Name+" : cannot read");
-						continue;
-					}
-					
-					if (this.IsIgnored(type, property, value)) {
-						if (Settings.DebugMode)
-							Console.WriteLine ("Cannot serialize "+property.Name+" : is ignored by settings");
-						continue;
-					}
-					
-					if (property.GetIndexParameters ().Length != 0) {
-						if (Settings.DebugMode)
-							Console.WriteLine ("Cannot serialize "+property.Name+" : is indexed");
-						continue;
-					}
-					
-					object propertyValue = property.GetValue(value, null);
-					if (this.IsDefaultValue(property, propertyValue)) {
-						if (Settings.DebugMode)
-							Console.WriteLine ("Cannot serialize "+property.Name+" : is default value");
-						continue;
-					}
-				
-					if (appendDelim)
-						this.WriteObjectPropertyDelim();
-					else
-						appendDelim = true;
-
-					// use Attributes here to control naming
-					string propertyName = JsonNameAttribute.GetJsonName(property);
-					if (String.IsNullOrEmpty(propertyName))
-						propertyName = property.Name;
-
-					this.WriteObjectProperty(propertyName, propertyValue);
-				}
-
-				// serialize public fields
 				FieldInfo[] fields = type.GetFields(BindingFlags.Instance | BindingFlags.Public);
-				foreach (FieldInfo field in fields)
+				if (settings.SortMembers || settings.PrettyMergeable)
 				{
-					if (this.IsIgnored(type, field, value)) {
-						if (Settings.DebugMode)
-							Console.WriteLine ("Cannot serialize "+field.Name+" : ignored by settings");
-						continue;
+					SortedDictionary<string, MemberInfo> sortedMembers = new SortedDictionary<string, MemberInfo>();
+					foreach (PropertyInfo property in properties) {
+						if (ShouldSerializeProperty(property,value)) {
+							sortedMembers[property.Name] = property;
+						}
 					}
-
-					object fieldValue = field.GetValue(value);
-					if (this.IsDefaultValue(field, fieldValue)) {
-						if (Settings.DebugMode)
-							Console.WriteLine ("Cannot serialize "+field.Name+" : is default value");
-						continue;
+					foreach (FieldInfo field in fields) {
+						if (ShouldSerializeField(field, value)) {
+							sortedMembers[field.Name] = field;
+						}
 					}
-
-					if (appendDelim)
-					{
-						this.WriteObjectPropertyDelim();
-						this.WriteLine();
-					} else
-					{
-						appendDelim = true;
+					foreach (KeyValuePair<string, MemberInfo> entry in sortedMembers) {
+						object memberValue = null;
+						var memberInfo = entry.Value;
+						if (memberInfo is PropertyInfo) {
+							memberValue = ((PropertyInfo)memberInfo).GetValue(value, null);
+						}
+						else if (memberInfo is FieldInfo) {
+							memberValue = ((FieldInfo)memberInfo).GetValue(value);
+						}
+						WriteObjectMemberProperty(memberInfo, memberValue, ref appendDelim);
 					}
-					
-					// use Attributes here to control naming
-					string fieldName = JsonNameAttribute.GetJsonName(field);
-					if (String.IsNullOrEmpty(fieldName))
-						fieldName = field.Name;
-
-					this.WriteObjectProperty(fieldName, fieldValue);
+				}
+				else {
+					foreach (PropertyInfo property in properties) {
+						if (ShouldSerializeProperty(property,value)) {
+							object propertyValue = property.GetValue(value, null);
+							WriteObjectMemberProperty(property, propertyValue, ref appendDelim);
+						}
+					}
+	
+					// serialize public fields
+					foreach (FieldInfo field in fields) {
+						if (ShouldSerializeField(field,value)) {
+							object fieldValue = field.GetValue(value);
+							WriteObjectMemberProperty(field, fieldValue, ref appendDelim);
+						}
+					}
 				}
 			}
 			finally
@@ -1151,6 +1132,61 @@ namespace JsonFx.Json
 				this.WriteLine();
 			
 			this.Writer.Write(JsonReader.OperatorObjectEnd);
+		}
+		
+		private bool ShouldSerializeProperty(PropertyInfo property, object value)
+		{
+			if (!property.CanRead) {
+				if (Settings.DebugMode)
+					Console.WriteLine ("Cannot serialize "+property.Name+" : cannot read");
+				return false;
+			}
+			
+			if (this.IsIgnored(property.DeclaringType, property, value)) {
+				if (Settings.DebugMode)
+					Console.WriteLine ("Cannot serialize "+property.Name+" : is ignored by settings");
+				return false;
+			}
+			
+			if (property.GetIndexParameters ().Length != 0) {
+				if (Settings.DebugMode)
+					Console.WriteLine ("Cannot serialize "+property.Name+" : is indexed");
+				return false;
+			}
+			return true;
+		}
+		
+		private bool ShouldSerializeField(FieldInfo field, object value) {
+			if (this.IsIgnored(field.DeclaringType, field, value)) {
+				if (Settings.DebugMode)
+					Console.WriteLine ("Cannot serialize "+field.Name+" : ignored by settings");
+				return false;
+			}
+			return true;
+		}
+
+		private void WriteObjectMemberProperty(MemberInfo memberInfo, object propertyValue, ref bool appendDelim)
+		{
+			if (!Settings.PrintDefaults && this.IsDefaultValue(memberInfo, propertyValue)) {
+				if (Settings.DebugMode)
+					Console.WriteLine("Cannot serialize " + memberInfo.Name + " : is default value");
+				return;
+			}
+			if (appendDelim) {
+				if (this.settings.PrettyMergeable) {
+					this.WriteLine();
+				}
+				this.WriteObjectPropertyDelim();
+			}
+			else {
+				appendDelim = true;
+			}
+			// use Attributes here to control naming
+			string propertyName = JsonNameAttribute.GetJsonName(memberInfo);
+			if (String.IsNullOrEmpty(propertyName)) {
+				propertyName = memberInfo.Name;
+			}
+			this.WriteObjectProperty(propertyName, propertyValue);
 		}
 
 		protected virtual void WriteArrayItemDelim()

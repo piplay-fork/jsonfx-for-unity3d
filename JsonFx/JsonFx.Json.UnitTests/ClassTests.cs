@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace JsonFx.Json.UnitTests
 {
@@ -102,64 +104,88 @@ namespace JsonFx.Json.UnitTests
 		[Test()]
 		public void TestFields()
 		{
-			DoTest<FieldsClass>();
+			DoTests<FieldsClass>();
 		}
 		
 		[Test()]
 		public void TestPublishedPropertiesClass()
 		{
-			DoTest<PublishedPropertiesClass>();
+			DoTests<PublishedPropertiesClass>();
 		}
 		
 		[Test()]
 		public void TestAutoPropertiesClass()
 		{
-			DoTest<AutoPropertiesClass>();
+			DoTests<AutoPropertiesClass>();
 		}
 		
 		[Test()]
 		public void TestArraysClass()
 		{
-			DoTest<ArraysClass>();
+			DoTests<ArraysClass>();
 		}
 		
 		[Test()]
 		public void TestListsClass()
 		{
-			DoTest<ListsClass>();
+			DoTests<ListsClass>();
 		}
 		
 		[Test()]
 		public void TestReadonlyListsClass()
 		{
-			DoTest<ReadonlyListsClass>();
+			DoTests<ReadonlyListsClass>();
 		}
 		
 		[Test()]
 		public void TestPublicSetPropertiesClass()
 		{
-			DoTest<PublicSetPropertiesClass>();
+			DoTests<PublicSetPropertiesClass>();
 		}
 		
 		[Test()]
 		public void TestGetOnlyListPropertiesClass()
 		{
-			DoTest<GetOnlyListPropertiesClass>();
+			DoTests<GetOnlyListPropertiesClass>();
 		}
 		
 		[Test()]
 		public void TestBigNestedClass()
 		{
-			DoTest<BigNestedClass>();
+			DoTests<BigNestedClass>();
 		}
 		
-		private void DoTest<T>() {
+		private void DoTests<T>() {
 			var original = FuzzUtil.FuzzGen<T>();
+			BasicTest(original);
+			BasicTestWithSettings(original, new JsonWriterSettings() { PrettyPrint = true });
+			BasicTestWithSettings(original, new JsonWriterSettings() { PrettyMergeable = true });
+			BasicTestWithSettings(original, new JsonWriterSettings() { SortMembers = true });
+		}
+
+		private static void BasicTest<T>(T original)
+		{
 			var serialized = JsonWriter.Serialize(original);
 //			Console.WriteLine("Test serialize: " + serialized);
 			var deserialized = JsonReader.Deserialize<T>(serialized);
 //			Assert.AreEqual(original, deserialized);
 			var reserialized = JsonWriter.Serialize(deserialized);
+			Assert.AreEqual(serialized, reserialized);
+		}
+
+		private static void BasicTestWithSettings<T>(T original, JsonWriterSettings settings)
+		{
+			var stringBuilder = new StringBuilder();
+			var writer = new JsonWriter(stringBuilder, settings);
+			writer.Write(original);
+			var serialized = stringBuilder.ToString();
+//			Console.WriteLine("Test serialize: " + serialized);
+			var deserialized = JsonReader.Deserialize<T>(serialized);
+//			Assert.AreEqual(original, deserialized);
+			stringBuilder.Length = 0;
+			stringBuilder.Capacity = 0;
+			writer.Write(deserialized);
+			var reserialized = stringBuilder.ToString();
 			Assert.AreEqual(serialized, reserialized);
 		}
 	}
