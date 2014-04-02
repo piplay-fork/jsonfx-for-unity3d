@@ -530,7 +530,7 @@ namespace JsonFx.Json
 				return;
 			}
 
-			if (type.GetInterface(JsonReader.TypeGenericIDictionary) != null)
+			if (Array.IndexOf(type.GetInterfaces(), typeof(IDictionary)) != -1)
 			{
 				try
 				{
@@ -544,7 +544,7 @@ namespace JsonFx.Json
 						this.WriteLine();
 					}
 
-					this.WriteDictionary((IEnumerable)value);
+					this.WriteDictionary((IDictionary)value);
 				}
 				finally
 				{
@@ -976,57 +976,53 @@ namespace JsonFx.Json
 
 		protected virtual void WriteObject(IDictionary value)
 		{
-			this.WriteDictionary((IEnumerable)value);
+			this.WriteDictionary(value);
 		}
 
-		protected virtual void WriteDictionary(IEnumerable value)
+		protected virtual void WriteDictionary(IDictionary value)
 		{
-			IDictionaryEnumerator enumerator = value.GetEnumerator() as IDictionaryEnumerator;
-			if (enumerator == null)
-			{
-				throw new JsonSerializationException(String.Format(JsonWriter.ErrorIDictionaryEnumerator, value.GetType()));
-			}
+            bool appendDelim = false;
 
-			bool appendDelim = false;
+            this.Writer.Write(JsonReader.OperatorObjectStart);
 
-			this.Writer.Write(JsonReader.OperatorObjectStart);
+            this.depth++;
+            if (this.depth > this.settings.MaxDepth)
+            {
+                throw new JsonSerializationException(String.Format(JsonWriter.ErrorMaxDepth, this.settings.MaxDepth));
+            }
 
-			this.depth++;
-			if (this.depth > this.settings.MaxDepth)
-			{
-				throw new JsonSerializationException(String.Format(JsonWriter.ErrorMaxDepth, this.settings.MaxDepth));
-			}
-
-			try
-			{
-				while (enumerator.MoveNext())
-				{
-					if (appendDelim)
-					{
+            try
+            {
+				//Do it this way because of strange device bug with Dictionary<string,string> enumerators
+                var keys = value.Keys;
+                foreach (var key in keys)
+                {
+                    if (appendDelim)
+                    {
 						if (this.settings.PrettyMergeable)
 						{
 							this.WriteLine();
 						}
-						this.WriteObjectPropertyDelim();
-					}
-					else
-					{
-						appendDelim = true;
-					}
+                        this.WriteObjectPropertyDelim();
+                    }
+                    else
+                    {
+                        appendDelim = true;
+                    }
 
-					this.WriteObjectProperty(Convert.ToString(enumerator.Entry.Key), enumerator.Entry.Value);
-				}
-			}
-			finally
-			{
-				this.depth--;
-			}
+                    this.WriteObjectProperty(Convert.ToString(key), value[key]);
+                }
+            }
+            finally
+            {
+                this.depth--;
+            }
 
-			if (appendDelim)
-			{
-				this.WriteLine();
-			}
-			this.Writer.Write(JsonReader.OperatorObjectEnd);
+            if (appendDelim)
+            {
+                this.WriteLine();
+            }
+            this.Writer.Write(JsonReader.OperatorObjectEnd);
 		}
 
 		private void WriteObjectProperty(string key, object value)
