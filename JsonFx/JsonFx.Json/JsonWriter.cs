@@ -994,8 +994,19 @@ namespace JsonFx.Json
             try
             {
 				//Do it this way because of strange device bug with Dictionary<string,string> enumerators
-                var keys = value.Keys;
-                foreach (var key in keys)
+				//Also because of key sorting
+				ICollection keys = value.Keys;
+				KeyValuePair<object,string>[] keyAndStrings = new KeyValuePair<object, string>[keys.Count];
+				int i = 0;
+				foreach (object key in keys)
+				{
+					keyAndStrings[i++] = new KeyValuePair<object, string>(key, Convert.ToString(key));
+				}
+				if (this.settings.SortMembers)
+				{
+					Array.Sort(keyAndStrings, (a,b) => string.Compare(a.Value,b.Value));
+				}
+				foreach (KeyValuePair<object,string> keyAndString in keyAndStrings)
                 {
                     if (appendDelim)
                     {
@@ -1010,7 +1021,7 @@ namespace JsonFx.Json
                         appendDelim = true;
                     }
 
-                    this.WriteObjectProperty(Convert.ToString(key), value[key]);
+					this.WriteObjectProperty(keyAndString.Value, value[keyAndString.Key]);
                 }
             }
             finally
