@@ -773,6 +773,10 @@ namespace JsonFx.Json
 						{
 							this.Writer.Write("\\u");
 							this.Writer.Write(Char.ConvertToUtf32(value, i).ToString("X4"));
+							if (char.IsSurrogatePair(value, i))
+							{
+								i++;
+							}
 							continue;
 						}
 					}
