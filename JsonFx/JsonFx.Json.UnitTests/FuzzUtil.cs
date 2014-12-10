@@ -69,13 +69,13 @@ public static class FuzzUtil
 							var list = prop.GetValue(obj, null) as IList;
 							var elementType = list.GetType().GetGenericArguments()[0];
 							for (int i = 0, l = (int)RandMag(8); i < l; i++) {
-								list.Add(FuzzGen(elementType, depthRemaining));
+								list.Add(FuzzGen(elementType, depthRemaining - 1));
 							}
 						}
 					}
 					foreach (var field in type.GetFields()) {
 						if (field.IsPublic && !field.IsStatic && !field.IsInitOnly) {
-							field.SetValue(obj, FuzzGen(field.FieldType));
+							field.SetValue(obj, FuzzGen(field.FieldType, depthRemaining - 1));
 						}
 					}
 					generated = obj;
