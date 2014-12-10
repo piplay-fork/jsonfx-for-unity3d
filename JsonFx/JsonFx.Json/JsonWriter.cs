@@ -319,6 +319,24 @@ namespace JsonFx.Json
 			return output.ToString();
 		}
 
+		/// <summary>
+		/// A helper method for serializing an object to JSON
+		/// </summary>
+		/// <param name="value"></param>
+		/// <param name="settings"></param>
+		/// <returns>Serialized JSON string</returns>
+		public static string Serialize(object value, JsonWriterSettings settings)
+		{
+			StringBuilder output = new StringBuilder();
+
+			using (JsonWriter writer = new JsonWriter(output, settings))
+			{
+				writer.Write(value);
+			}
+
+			return output.ToString();
+		}
+
 		#endregion Static Methods
 
 		#region Public Methods
