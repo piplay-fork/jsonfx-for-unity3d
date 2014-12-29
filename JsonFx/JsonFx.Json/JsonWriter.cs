@@ -1110,7 +1110,7 @@ namespace JsonFx.Json
 				// serialize public properties
 				PropertyInfo[] properties = type.GetProperties();
 				FieldInfo[] fields = type.GetFields(BindingFlags.Instance | BindingFlags.Public);
-				if (settings.SortMembers || settings.PrettyMergeable)
+				if (settings.SortMembers)
 				{
 					SortedDictionary<string, MemberInfo> sortedMembers = new SortedDictionary<string, MemberInfo>();
 					foreach (PropertyInfo property in properties) {
