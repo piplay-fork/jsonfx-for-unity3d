@@ -1089,7 +1089,7 @@ namespace JsonFx.Json
 			}
 			try
 			{
-				if (!String.IsNullOrEmpty(this.settings.TypeHintName))
+				if (!String.IsNullOrEmpty(this.settings.TypeHintName) && (settings.TypeHintPredicate == null || settings.TypeHintPredicate(type)))
 				{
 					if (appendDelim)
 					{

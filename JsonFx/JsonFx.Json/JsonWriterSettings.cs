@@ -59,6 +59,7 @@ namespace JsonFx.Json
 		private string tab = "\t";
 		private string typeHintName;
 		private bool useXmlSerializationAttributes;
+		private Predicate<Type> typeHintPredicate;
 		
 		#endregion Fields
 
@@ -71,6 +72,13 @@ namespace JsonFx.Json
 		{
 			get { return this.typeHintName; }
 			set { this.typeHintName = value; }
+		}
+
+		// if TypeHintName is set but you only want some objects to have the hint, than assign the predicate logic here.
+		public virtual Predicate<Type> TypeHintPredicate
+		{
+			get { return this.typeHintPredicate; }
+			set { this.typeHintPredicate = value; }
 		}
 
 		/// <summary>
