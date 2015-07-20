@@ -1103,8 +1103,14 @@ namespace JsonFx.Json
 					{
 						appendDelim = true;
 					}
-
-					this.WriteObjectProperty(this.settings.TypeHintName, type.FullName+", "+type.Assembly.GetName().Name);
+					if(string.IsNullOrEmpty(settings.TypeHintAssembly))
+					{
+						this.WriteObjectProperty(this.settings.TypeHintName, type.FullName+", "+type.Assembly.GetName().Name);
+					}
+					else
+					{
+						this.WriteObjectProperty(this.settings.TypeHintName, type.FullName);
+					}
 				}
 
 				// serialize public properties

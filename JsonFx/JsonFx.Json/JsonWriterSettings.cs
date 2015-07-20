@@ -58,6 +58,7 @@ namespace JsonFx.Json
 		private bool sortMembers;
 		private string tab = "\t";
 		private string typeHintName;
+		private string typeHintAssembly;
 		private bool useXmlSerializationAttributes;
 		private Predicate<Type> typeHintPredicate;
 		
@@ -72,6 +73,12 @@ namespace JsonFx.Json
 		{
 			get { return this.typeHintName; }
 			set { this.typeHintName = value; }
+		}
+
+		public virtual string TypeHintAssembly
+		{
+			get { return this.typeHintAssembly; }
+			set { this.typeHintAssembly = value; }
 		}
 
 		// if TypeHintName is set but you only want some objects to have the hint, than assign the predicate logic here.

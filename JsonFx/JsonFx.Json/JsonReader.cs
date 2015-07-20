@@ -411,7 +411,7 @@ namespace JsonFx.Json
 				result = new Dictionary<String, Object>();
 			}
 			
-			PopulateObject (result, objectType, memberMap, genericDictionaryType);
+			result = PopulateObject (result, objectType, memberMap, genericDictionaryType);
 			return result;
 		}
 		
@@ -439,7 +439,7 @@ namespace JsonFx.Json
 			return null;
 		}
 		
-		private void PopulateObject (object result, Type objectType, Dictionary<string, MemberInfo> memberMap, Type genericDictionaryType)
+		private object PopulateObject (object result, Type objectType, Dictionary<string, MemberInfo> memberMap, Type genericDictionaryType)
 		{
 			if (this.Source[this.index] != JsonReader.OperatorObjectStart)
 			{
@@ -508,7 +508,12 @@ namespace JsonFx.Json
 				{
 					if (objectType == null && this.Settings.IsTypeHintName(memberName))
 					{
-						result = this.Settings.Coercion.ProcessTypeHint((IDictionary)result, value as string, out objectType, out memberMap);
+						var typestr = value as string;
+						if(!string.IsNullOrEmpty(Settings.TypeHintAssembly))
+						{
+							typestr += ", " + Settings.TypeHintAssembly;
+						}
+						result = this.Settings.Coercion.ProcessTypeHint((IDictionary)result, typestr, out objectType, out memberMap);
 					}
 					else
 					{
@@ -538,7 +543,7 @@ namespace JsonFx.Json
 			// consume closing brace
 			this.index++;
 
-			//return result;
+			return result;
 		}
 
 		private IEnumerable ReadArray(Type arrayType)

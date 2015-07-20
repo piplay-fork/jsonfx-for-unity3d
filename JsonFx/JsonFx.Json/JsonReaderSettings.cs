@@ -43,6 +43,7 @@ namespace JsonFx.Json
 		internal readonly TypeCoercionUtility Coercion = new TypeCoercionUtility();
 		private bool allowUnquotedObjectKeys = false;
 		private string typeHintName;
+		private string typeHintAssembly;
 
 		#endregion Fields
 
@@ -79,6 +80,12 @@ namespace JsonFx.Json
 		{
 			get { return this.typeHintName; }
 			set { this.typeHintName = value; }
+		}
+		
+		public virtual string TypeHintAssembly
+		{
+			get { return this.typeHintAssembly; }
+			set { this.typeHintAssembly = value; }
 		}
 
 		#endregion Properties
