@@ -526,6 +526,27 @@ namespace JsonFx.Json
 						String.Format(JsonReader.ErrorGenericIDictionary, objectType),
 						this.index);
 				}
+				else if (this.Settings.IsTypeHintName(memberName))
+				{
+					var typestr = value as string;
+					if(!string.IsNullOrEmpty(Settings.TypeHintAssembly))
+					{
+						typestr += ", " + Settings.TypeHintAssembly;
+					}
+					var prevDict = result as IDictionary;
+					result = this.Settings.Coercion.ProcessTypeHint(null, typestr, out objectType, out memberMap);
+					if (prevDict != null)
+					{
+						foreach(var key in prevDict.Keys)
+						{
+							var f = objectType.GetField(key as string);
+							if(f != null)
+							{
+								f.SetValue(result, prevDict[key]);
+							}
+						}
+					}
+				}
 				else
 				{
 					this.Settings.Coercion.SetMemberValue(result, memberType, memberInfo, value);

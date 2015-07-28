@@ -477,7 +477,7 @@ namespace JsonFx.Json
 		private object CoerceType(Type targetType, IDictionary value, out Dictionary<string, MemberInfo> memberMap)
 		{
 			object newValue = this.InstantiateObject(targetType, out memberMap);
-			if (memberMap != null)
+			if (memberMap != null && value != null)
 			{
 				// copy any values into new object
 				foreach (object key in value.Keys)
