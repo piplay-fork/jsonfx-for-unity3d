@@ -775,26 +775,54 @@ namespace JsonFx.Json
 							// Unicode escape sequence
 							// e.g. Copyright: "\u00A9"
 
-							// unicode ordinal
-							int utf16;
-							if (this.index+4 < this.SourceLength &&
-								Int32.TryParse(
-									this.Source.Substring(this.index+1, 4),
-									NumberStyles.AllowHexSpecifier,
-									NumberFormatInfo.InvariantInfo,
-									out utf16))
-							{
-								builder.Append(Char.ConvertFromUtf32(utf16));
-								this.index += 4;
-							}
-							else
-							{
-								// using FireFox style recovery, if not a valid hex
-								// escape sequence then treat as single escaped 'u'
-								// followed by rest of string
-								builder.Append(this.Source[this.index]);
-							}
-							break;
+                            // unicode ordinal
+                            int utf16;
+                            if (this.index + 4 < this.SourceLength &&
+                                Int32.TryParse(
+                                    this.Source.Substring(this.index + 1, 4),
+                                    NumberStyles.AllowHexSpecifier,
+                                    NumberFormatInfo.InvariantInfo,
+                                    out utf16))
+                            {
+                                this.index += 4;
+                                // tsteil - added
+                                // see if we have another \u char (surrogate pair)
+                                int utf16_pair;
+                                if (this.index + 6 < this.SourceLength &&
+                                    Int32.TryParse(
+                                        this.Source.Substring(this.index + 3, 4),
+                                        NumberStyles.AllowHexSpecifier,
+                                        NumberFormatInfo.InvariantInfo,
+                                        out utf16_pair))
+                                {
+                                    // make sure its actually a surrogate pair
+                                    if (char.IsSurrogatePair((char)utf16, (char)utf16_pair))
+                                    {
+                                        // looks like we have a surrogate pair
+                                        this.index += 5;
+                                        var utf32 = Char.ConvertToUtf32((char)utf16, (char)utf16_pair);
+                                        builder.Append(Char.ConvertFromUtf32(utf32));
+                                    }
+                                    else
+                                    {
+                                        // its not a surrogate pair, so just add the original utf16 char
+                                        builder.Append(Char.ConvertFromUtf32(utf16));
+                                    }
+                                }
+                                else
+                                {
+                                    // no additional \u char
+                                    builder.Append(Char.ConvertFromUtf32(utf16));
+                                }
+                            }
+                            else
+                            {
+                                // using FireFox style recovery, if not a valid hex
+                                // escape sequence then treat as single escaped 'u'
+                                // followed by rest of string
+                                builder.Append(this.Source[this.index]);
+                            }
+                            break;
 						}
 						default:
 						{
