@@ -788,7 +788,8 @@ namespace JsonFx.Json
                                 // tsteil - added
                                 // see if we have another \u char (surrogate pair)
                                 int utf16_pair;
-                                if (this.index + 6 < this.SourceLength &&
+                                if (this.index + 7 < this.SourceLength &&
+                                	this.Source.Substring(this.index + 1, 2) == @"\u" &&
                                     Int32.TryParse(
                                         this.Source.Substring(this.index + 3, 4),
                                         NumberStyles.AllowHexSpecifier,
@@ -799,7 +800,7 @@ namespace JsonFx.Json
                                     if (char.IsSurrogatePair((char)utf16, (char)utf16_pair))
                                     {
                                         // looks like we have a surrogate pair
-                                        this.index += 5;
+                                        this.index += 6;
                                         var utf32 = Char.ConvertToUtf32((char)utf16, (char)utf16_pair);
                                         builder.Append(Char.ConvertFromUtf32(utf32));
                                     }

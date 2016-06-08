@@ -790,10 +790,15 @@ namespace JsonFx.Json
 						default:
 						{
 							this.Writer.Write("\\u");
-							this.Writer.Write(Char.ConvertToUtf32(value, i).ToString("X4"));
+							var str = ((int)value[i]).ToString("X4");
+							this.Writer.Write(str);
 							if (char.IsSurrogatePair(value, i))
 							{
 								i++;
+								start = i + 1;
+								this.Writer.Write("\\u");
+								var str2 = ((int)value[i]).ToString("X4");
+								this.Writer.Write(str2);
 							}
 							continue;
 						}
@@ -803,7 +808,8 @@ namespace JsonFx.Json
 
 			if (length > start)
 			{
-				this.Writer.Write(value.Substring(start, length-start));
+				var str = value.Substring(start, length - start);
+				this.Writer.Write(str);
 			}
 
 			this.Writer.Write(JsonReader.OperatorStringDelim);
